@@ -1,15 +1,15 @@
-/* Zigarthanda — milk, ink and rose. A quiet page for long reading. */
+/* Zigarthanda — Banana leaf on sand. A quiet page for long reading. */
 
 :root {
-  --milk: #FBF8F3;        /* page */
-  --cream: #F3EDE4;       /* soft panels, image placeholders */
-  --ink: #1F1A1C;         /* text */
-  --ink-soft: #4B4245;    /* secondary text */
-  --ink-faint: #6E6466;   /* labels, captions */
-  --rose: #8E3F55;        /* accent: links, numerals, buttons */
-  --rose-deep: #6F2E41;   /* accent on hover */
-  --hair: #E4DCD2;        /* hairlines */
-
+  --milk: #F6EEE2;        /* page: warm sand */
+  --cream: #ECE0CE;       /* soft panels, image placeholders */
+  --ink: #2B1D14;         /* text: deep earth brown */
+  --ink-soft: #5C4636;    /* secondary text */
+  --ink-faint: #7A6352;   /* labels, captions */
+  --rose: #3E6B5A;        /* accent (now banana-leaf green): links, numerals, buttons */
+  --rose-deep: #2C5244;   /* accent on hover */
+  --hair: #DCCBB3;        /* hairlines */
+  
   --display: 'Cormorant', 'Garamond', Georgia, serif;
   --serif: 'Literata', Georgia, serif;
   --sans: 'Work Sans', system-ui, sans-serif;
