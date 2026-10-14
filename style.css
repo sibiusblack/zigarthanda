@@ -16,7 +16,7 @@
 
   --display: 'Cormorant Garamond', Garamond, Georgia, serif;
   --label: 'EB Garamond', Garamond, Georgia, serif;
-  --serif: 'Literata', Georgia, serif;
+  --serif: 'EB Garamond', Garamond, Georgia, serif;   /* reading text */
 
   --measure: 640px;
   --wide: 1040px;
@@ -31,8 +31,8 @@ body {
   color: var(--ink);
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 19px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -67,7 +67,7 @@ img { display: block; max-width: 100%; }
 .byline { margin-top: 22px; font-family: var(--label); font-style: italic; font-size: 19px; letter-spacing: 0.3em; color: var(--ink-soft); }
 .author { margin-top: 6px; font-family: var(--display); font-weight: 600; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.4em; text-transform: uppercase; color: var(--plum); padding-left: 0.4em; }
 .genres { margin-top: 18px; font-family: var(--label); font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); }
-.tagline { margin-top: 26px; max-width: 32ch; font-style: italic; font-size: clamp(17px, 2.6vw, 19px); line-height: 1.6; color: var(--ink-soft); }
+.tagline { margin-top: 26px; max-width: 32ch; font-style: italic; font-size: clamp(19px, 2.8vw, 22px); line-height: 1.55; color: var(--ink-soft); }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 
 .btn {
@@ -101,7 +101,7 @@ img { display: block; max-width: 100%; }
 .now-item { display: flex; flex-wrap: wrap; gap: 2px 24px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--frost-line); }
 .now-item:first-child { border-top: 1px solid var(--frost-line); }
 .now dt { flex: 0 0 110px; font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: #3D4F61; }
-.now dd { flex: 1 1 240px; font-size: 18px; }
+.now dd { flex: 1 1 240px; font-size: 21px; }
 .updated { margin-top: 12px; font-family: var(--label); font-style: italic; font-size: 15px; color: #3D4F61; }
 
 /* Writing */
@@ -116,7 +116,7 @@ img { display: block; max-width: 100%; }
 .piece-tag { font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); }
 .piece-title { font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.15; }
 .piece:hover .piece-title { color: var(--blue); }
-.piece-line { color: var(--ink-soft); font-size: 15px; }
+.piece-line { color: var(--ink-soft); font-size: 18px; }
 
 .more { display: inline-block; margin-top: 36px; padding: 12px 0; font-family: var(--label); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; }
 
@@ -133,8 +133,8 @@ img { display: block; max-width: 100%; }
 .portrait { flex: 0 0 160px; aspect-ratio: 4 / 5; background: var(--paper-deep); overflow: hidden; }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
 .about-text { flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px; }
-.about-text p:first-child { font-size: 19px; }
-.elsewhere { color: var(--ink-soft); font-size: 15px; }
+.about-text p:first-child { font-size: 22px; line-height: 1.5; }
+.elsewhere { color: var(--ink-soft); font-size: 18px; }
 
 /* Subscribe */
 .subscribe { text-align: center; }
@@ -156,7 +156,7 @@ img { display: block; max-width: 100%; }
 
 /* ---------- Larger screens ---------- */
 @media (min-width: 720px) {
-  body { font-size: 18px; }
+  body { font-size: 20px; }
   .site-header { padding: 26px 32px; }
   .chapter { padding: 96px 32px; }
   .portrait { flex-basis: 200px; }
