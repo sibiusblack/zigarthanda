@@ -167,3 +167,20 @@ img { display: block; max-width: 100%; }
   .btn, .cover img { transition: none; }
   .piece:hover .cover img { transform: none; }
 }
+
+/* ---------- Hero: frost & cream split, latest piece, reading cue ---------- */
+html, body { overflow-x: clip; }
+.hero { padding-top: clamp(96px, 18vh, 180px); padding-bottom: 32px; }
+.title { position: relative; }
+.title::before {                /* frost fills everything above the middle of the title */
+  content: ""; position: absolute; z-index: -1;
+  left: 50%; width: 100vw; transform: translateX(-50%);
+  top: -100vh; bottom: 50%;
+  background: var(--frost);
+}
+.latest { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--hair); width: min(100%, 460px); display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: var(--ink); }
+.latest-tag { font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); }
+.latest-title { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.2; }
+.latest:hover .latest-title { color: var(--blue); }
+.cue { margin-top: 36px; padding: 12px 0; font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; }
+.cue:hover { color: var(--blue); }
