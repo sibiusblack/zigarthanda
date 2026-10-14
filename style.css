@@ -56,7 +56,7 @@ img { display: block; max-width: 100%; }
 /* ---------- Hero ---------- */
 .hero {
   max-width: var(--measure); margin: 0 auto;
-  padding: 12vh 20px 11vh;
+  padding: 12vh 20px 40px;
   text-align: center;
   display: flex; flex-direction: column; align-items: center;
 }
@@ -66,7 +66,9 @@ img { display: block; max-width: 100%; }
 }
 .byline { margin-top: 22px; font-family: var(--label); font-style: italic; font-size: 19px; letter-spacing: 0.3em; color: var(--ink-soft); }
 .author { margin-top: 6px; font-family: var(--display); font-weight: 600; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.4em; text-transform: uppercase; color: var(--plum); padding-left: 0.4em; }
-.genres { margin-top: 18px; font-family: var(--label); font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); }
+.genres { margin-top: 18px; font-family: var(--label); font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ink); }
+.g-matinee, .nav .nav-matinee { color: var(--blue); }
+.g-verandah, .nav .nav-verandah { color: var(--plum); }
 .tagline { margin-top: 26px; max-width: 32ch; font-style: italic; font-size: clamp(19px, 2.8vw, 22px); line-height: 1.55; color: var(--ink-soft); }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 
@@ -104,29 +106,26 @@ img { display: block; max-width: 100%; }
 .now dd { flex: 1 1 240px; font-size: 21px; }
 .updated { margin-top: 12px; font-family: var(--label); font-style: italic; font-size: 15px; color: #3D4F61; }
 
-/* Writing */
-#writing { max-width: var(--wide); }
-#writing > .numeral, #writing > h2, #writing > .chapter-lead { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-
-.pieces { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 40px 32px; }
-.piece { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 8px; color: var(--ink); text-decoration: none; }
-.cover { aspect-ratio: 3 / 2; background: var(--paper-deep); overflow: hidden; margin-bottom: 8px; }
-.cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-.piece:hover .cover img { transform: scale(1.02); }
-.piece-tag { font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); }
-.piece-title { font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.15; }
-.piece:hover .piece-title { color: var(--blue); }
-.piece-line { color: var(--ink-soft); font-size: 18px; }
-
-.more { display: inline-block; margin-top: 36px; padding: 12px 0; font-family: var(--label); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; }
-
-.strands {
-  list-style: none; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid var(--hair);
-  display: flex; flex-wrap: wrap; gap: 8px 10px;
-  font-family: var(--label); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+/* ---------- Matinee & Verandah: two doors ---------- */
+.doors { max-width: var(--wide); margin: 0 auto; padding: 32px 20px 80px; display: flex; flex-wrap: wrap; gap: 24px; }
+.door {
+  flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column;
+  padding: 40px 32px 30px; color: var(--ink); text-decoration: none;
+  transition: transform .35s ease, box-shadow .35s ease;
 }
-.strands li { padding: 6px 12px; border: 1px solid var(--hair); color: var(--ink-soft); }
-.strands .soon { font-style: italic; text-transform: none; letter-spacing: 0.06em; font-size: 14px; border-style: dashed; }
+.door:hover { color: var(--ink); transform: translateY(-4px); box-shadow: 0 14px 30px -18px rgba(30,36,48,.45); }
+.door-matinee { background: var(--frost); --door: var(--blue); }
+.door-verandah { background: var(--paper-deep); --door: var(--plum); }
+.door-kicker { display: flex; align-items: center; gap: 10px; font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--door); }
+.door-mark { flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.door-mark * { vector-effect: non-scaling-stroke; }
+.door-name { margin-top: 8px; font-family: var(--display); font-weight: 600; font-size: clamp(42px, 7vw, 56px); line-height: 1; color: var(--door); }
+.door-desc { margin-top: 10px; max-width: 32ch; font-style: italic; color: var(--ink-soft); }
+.door-topics { margin-top: 12px; font-family: var(--label); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+.door-latest { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(30,36,48,.15); }
+.door-latest small { display: block; font-family: var(--label); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--door); }
+.door-latest strong { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.2; }
+.door-enter { margin-top: auto; padding-top: 22px; font-family: var(--label); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--door); }
 
 /* About */
 .about { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
@@ -164,20 +163,11 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .cover img { transition: none; }
-  .piece:hover .cover img { transform: none; }
+  .btn, .door { transition: none; }
+  .door:hover { transform: none; }
 }
 
-/* ---------- Hero: frost & cream split, latest piece, reading cue ---------- */
-html, body { overflow-x: clip; }
-.hero { padding-top: clamp(96px, 18vh, 180px); padding-bottom: 32px; }
-.title { position: relative; }
-.title::before {                /* frost fills everything above the middle of the title */
-  content: ""; position: absolute; z-index: -1;
-  left: 50%; width: 100vw; transform: translateX(-50%);
-  top: -100vh; bottom: 50%;
-  background: var(--frost);
-}
+/* ---------- Hero: latest piece and reading cue ---------- */
 .latest { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--hair); width: min(100%, 460px); display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: var(--ink); }
 .latest-tag { font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); }
 .latest-title { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.2; }
