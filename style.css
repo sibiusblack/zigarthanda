@@ -1,0 +1,171 @@
+/* Zigarthanda — milk, ink and rose. A quiet page for long reading. */
+
+:root {
+  --milk: #FBF8F3;        /* page */
+  --cream: #F3EDE4;       /* soft panels, image placeholders */
+  --ink: #1F1A1C;         /* text */
+  --ink-soft: #4B4245;    /* secondary text */
+  --ink-faint: #6E6466;   /* labels, captions */
+  --rose: #8E3F55;        /* accent: links, numerals, buttons */
+  --rose-deep: #6F2E41;   /* accent on hover */
+  --hair: #E4DCD2;        /* hairlines */
+
+  --display: 'Cormorant', 'Garamond', Georgia, serif;
+  --serif: 'Literata', Georgia, serif;
+  --sans: 'Work Sans', system-ui, sans-serif;
+
+  --measure: 640px;       /* reading column */
+  --wide: 1040px;         /* pieces row */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--milk);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--rose); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--rose-deep); }
+a:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+h1, h2, p, figure, dl, dd { margin: 0; }
+img { display: block; max-width: 100%; }
+
+/* ---------- Header ---------- */
+.site-header {
+  max-width: var(--wide); margin: 0 auto; padding: 20px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px;
+}
+.mark {
+  font-family: var(--display); font-size: 24px; font-weight: 500;
+  color: var(--ink); text-decoration: none; letter-spacing: 0.01em;
+}
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav a { color: var(--ink-soft); text-decoration: none; padding: 12px 0; }
+.nav a:hover { color: var(--rose); }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--measure); margin: 0 auto;
+  padding: 18vh 20px 16vh;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 22px;
+}
+.byline { font-family: var(--sans); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+.title {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(60px, 15vw, 128px); line-height: 0.95; letter-spacing: -0.01em;
+}
+.tagline {
+  font-style: italic; font-size: clamp(20px, 3.2vw, 24px); line-height: 1.55;
+  color: var(--ink-soft); max-width: 30ch;
+}
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding-top: 10px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 26px; border-radius: 999px;
+  font-family: var(--sans); font-size: 15px; letter-spacing: 0.02em; text-decoration: none;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.btn-solid { background: var(--rose); color: var(--milk); }
+.btn-solid:hover { background: var(--rose-deep); color: var(--milk); }
+.btn-quiet { color: var(--ink); border: 1px solid var(--hair); }
+.btn-quiet:hover { color: var(--rose); border-color: var(--rose); }
+
+/* ---------- Chapters ---------- */
+.chapter {
+  max-width: var(--measure); margin: 0 auto;
+  padding: 88px 20px;
+  border-top: 1px solid var(--hair);
+}
+.numeral { font-family: var(--display); font-style: italic; font-size: 26px; color: var(--rose); line-height: 1; margin-bottom: 10px; }
+.chapter h2 { font-family: var(--display); font-weight: 400; font-size: clamp(38px, 7vw, 52px); line-height: 1.1; }
+.chapter-lead { margin-top: 12px; color: var(--ink-soft); font-style: italic; }
+
+/* Now */
+.now { margin-top: 36px; display: flex; flex-direction: column; }
+.now-item {
+  display: flex; flex-wrap: wrap; gap: 4px 28px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--hair);
+}
+.now-item:first-child { border-top: 1px solid var(--hair); }
+.now dt { flex: 0 0 110px; font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+.now dd { flex: 1 1 240px; font-size: 20px; }
+.updated { margin-top: 14px; font-family: var(--sans); font-size: 13px; color: var(--ink-faint); }
+
+/* Writing: the pieces row is wider than the reading column */
+#writing { max-width: var(--wide); }
+#writing > .numeral, #writing > h2, #writing > .chapter-lead { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+
+.pieces { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 44px 32px; }
+.piece {
+  flex: 1 1 280px; min-width: 0;
+  display: flex; flex-direction: column; gap: 10px;
+  color: var(--ink); text-decoration: none;
+}
+.cover { aspect-ratio: 3 / 2; background: var(--cream); overflow: hidden; margin-bottom: 8px; }
+.cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.piece:hover .cover img { transform: scale(1.02); }
+.piece-tag { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
+.piece-title { font-family: var(--display); font-size: 30px; line-height: 1.15; }
+.piece:hover .piece-title { color: var(--rose); }
+.piece-line { color: var(--ink-soft); font-size: 16px; }
+
+.more { display: inline-block; margin-top: 44px; padding: 12px 0; font-family: var(--sans); font-size: 15px; }
+
+.strands {
+  list-style: none; margin: 32px 0 0; padding: 24px 0 0; border-top: 1px solid var(--hair);
+  display: flex; flex-wrap: wrap; gap: 8px 10px;
+  font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em;
+}
+.strands li { padding: 6px 14px; border: 1px solid var(--hair); border-radius: 999px; color: var(--ink-soft); }
+.strands .soon { font-style: italic; border-style: dashed; }
+
+/* About */
+.about { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
+.portrait { flex: 0 0 160px; aspect-ratio: 4 / 5; background: var(--cream); overflow: hidden; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15); }
+.about-text { flex: 1 1 300px; display: flex; flex-direction: column; gap: 18px; }
+.about-text p:first-child { font-size: 20px; }
+.elsewhere { color: var(--ink-soft); font-size: 16px; }
+
+/* Subscribe */
+.subscribe { text-align: center; }
+.subscribe .chapter-lead { max-width: 34ch; margin-left: auto; margin-right: auto; }
+.embed { margin-top: 32px; display: flex; justify-content: center; }
+.embed iframe { width: 100%; max-width: 480px; height: 150px; border: 0; background: transparent; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--hair);
+  padding: 48px 20px 56px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.footer-mark { font-family: var(--display); font-size: 28px; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; font-family: var(--sans); font-size: 14px; }
+.footer-links a { padding: 12px 0; color: var(--ink-soft); }
+.footer-links a:hover { color: var(--rose); }
+.copy { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); }
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 720px) {
+  body { font-size: 19px; }
+  .site-header { padding: 28px 32px; }
+  .chapter { padding: 112px 32px; }
+  .portrait { flex-basis: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .cover img { transition: none; }
+  .piece:hover .cover img { transform: none; }
+}
