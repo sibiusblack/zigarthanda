@@ -320,3 +320,11 @@ img { display: block; max-width: 100%; }
 
 /* Anything marked hidden stays hidden, whatever its layout */
 [hidden] { display: none !important; }
+
+
+/* ---------- Header logo: ticket with a sky-window stub ---------- */
+.mark { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { flex: none; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.logo-mark * { vector-effect: non-scaling-stroke; }
+.logo-ticket { stroke: var(--blue); }
+.logo-stub { stroke: var(--plum); }
