@@ -1,8 +1,8 @@
 /* Zigarthanda — cream paper, frost and slate blue. */
 
 :root {
-  --paper: #F4EEDF;       /* page: cream paper */
-  --paper-deep: #EAE1CC;  /* image placeholders */
+  --paper: #FAF8F3;       /* page: soft paper, off-white */
+  --paper-deep: #F0EBE1;  /* Verandah door, image placeholders */
   --frost: #D5DEE6;       /* the Now band */
   --frost-line: #B4C2CE;  /* lines inside the band */
   --ink: #1E2430;         /* text */
@@ -12,7 +12,7 @@
   --blue-deep: #17324D;   /* hover */
   --plum: #6B3346;        /* your name, numerals */
   --red: #B82C47;         /* the umbrella: small labels only */
-  --hair: #DDD3BE;        /* hairlines */
+  --hair: #E6E0D5;        /* hairlines */
 
   --display: 'Cormorant Garamond', Garamond, Georgia, serif;
   --label: 'EB Garamond', Garamond, Georgia, serif;
