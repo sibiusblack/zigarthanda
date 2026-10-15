@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
@@ -35,9 +35,8 @@
     <nav class="nav" aria-label="Main">
       <a class="nav-matinee" href="matinee.html">Matinee</a>
       <a class="nav-verandah" href="verandah.html">Verandah</a>
-      <a href="#now">Now</a>
       <a href="#about">About</a>
-      <a href="#subscribe">Subscribe</a>
+      <a href="#your-turn">Join in</a>
     </nav>
   </header>
 
@@ -90,31 +89,70 @@
 
     </section>
 
-    <!-- I. NOW -->
-    <section id="now" class="chapter">
-      <p class="numeral">i.</p>
-      <h2>Now</h2>
-      <p class="chapter-lead">What's on my screen, my shelf and my desk this month.</p>
-      <dl class="now">
-        <div class="now-item">
-          <dt>Watching</dt>
-          <dd>[A film or series you're watching]</dd>
-        </div>
-        <div class="now-item">
-          <dt>Reading</dt>
-          <dd>[The book on your nightstand]</dd>
-        </div>
-        <div class="now-item">
-          <dt>Writing</dt>
-          <dd>[What you're working on]</dd>
-        </div>
-      </dl>
-      <p class="updated">Updated [Month Year]</p>
+    <!-- TONIGHT'S DOUBLE BILL: filled in automatically from matinee.html and verandah.html -->
+    <section class="bill-section" data-bill hidden>
+      <p class="bill-kicker">Tonight's double bill</p>
+      <h2 class="bill-title">A film, and a book to go with it</h2>
+      <div class="bill">
+        <a class="bill-card bill-matinee" href="matinee.html" data-bill-m>
+          <span class="bill-label"><svg class="door-mark" width="26" height="16" viewBox="0 0 100 60" aria-hidden="true"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>Matinee</span>
+          <span class="bill-name" data-title></span>
+          <span class="bill-sub" data-sub></span>
+        </a>
+        <span class="bill-amp" aria-hidden="true">&amp;</span>
+        <a class="bill-card bill-verandah" href="verandah.html" data-bill-v>
+          <span class="bill-label"><svg class="door-mark" width="26" height="16" viewBox="0 0 100 60" aria-hidden="true"><path d="M12 4 H88 A8 8 0 0 0 96 12 V48 A8 8 0 0 0 88 56 H12 A8 8 0 0 0 4 48 V12 A8 8 0 0 0 12 4 Z"/><path d="M50 16 L64 30 L50 44 L36 30 Z"/></svg>Verandah</span>
+          <span class="bill-name" data-title></span>
+          <span class="bill-sub" data-sub></span>
+        </a>
+      </div>
     </section>
 
-    <!-- II. ABOUT -->
+    <!-- PULL A TICKET: picks a random piece from matinee.html and verandah.html -->
+    <section class="pull-section" data-pull hidden>
+      <h2 class="pull-title">Can't choose?</h2>
+      <p class="pull-lead">Pull a ticket, and I'll pick something for you.</p>
+      <button class="pull-btn" type="button" data-pull-btn>
+        <svg class="door-mark" width="26" height="16" viewBox="0 0 100 60" aria-hidden="true"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>
+        Pull a ticket
+      </button>
+      <a class="pulled" href="#" data-pulled hidden aria-live="polite">
+        <span class="pulled-label" data-label></span>
+        <span class="pulled-title" data-title></span>
+      </a>
+    </section>
+
+    <!-- YOUR TURN: suggestions and the club. Both forms send to your email through Formspree.
+         Replace [YOUR-FORM-ID] in both forms with the ID from formspree.io (one form serves both). -->
+    <section class="your-turn" id="your-turn">
+      <div class="turn turn-suggest">
+        <p class="turn-kicker">Your turn</p>
+        <h2 class="turn-title">What should I watch or read next?</h2>
+        <p class="turn-lead">Send a film or a book my way. The best ones become pieces.</p>
+        <form class="inline-form" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST" data-form>
+          <label class="sr-only" for="suggestion">Your suggestion</label>
+          <input id="suggestion" name="suggestion" type="text" required placeholder="A film or book, and why">
+          <input type="hidden" name="_subject" value="Zigarthanda: a suggestion">
+          <button type="submit">Send</button>
+        </form>
+        <p class="form-thanks" data-thanks hidden>Thank you. It's on my list now.</p>
+      </div>
+      <div class="turn turn-club" id="club">
+        <p class="turn-kicker">Coming together</p>
+        <h2 class="turn-title">The Zigarthanda club</h2>
+        <p class="turn-lead">A film and a book each month, watched, read and talked over together. Leave your email to hear first when the doors open.</p>
+        <form class="inline-form" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST" data-form>
+          <label class="sr-only" for="club-email">Your email</label>
+          <input id="club-email" name="email" type="email" required placeholder="you@example.com">
+          <input type="hidden" name="_subject" value="Zigarthanda club: early list">
+          <button type="submit">Count me in</button>
+        </form>
+        <p class="form-thanks" data-thanks hidden>You're on the list. I'll write when the doors open.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
     <section id="about" class="chapter">
-      <p class="numeral">ii.</p>
       <h2>About</h2>
       <div class="about">
         <figure class="portrait"><img src="images/sibiraj.jpg" alt="Portrait of Sibiraj" loading="lazy" onerror="this.remove()"></figure>
@@ -128,16 +166,6 @@
             <a href="[YOUR GOODREADS URL]">Goodreads</a>.
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- III. SUBSCRIBE -->
-    <section id="subscribe" class="chapter subscribe">
-      <p class="numeral">iii.</p>
-      <h2>Read with me</h2>
-      <p class="chapter-lead">New pieces arrive about five times a month. Leave your email and they'll come straight to you, free.</p>
-      <div class="embed">
-        <iframe src="https://sibiusblack.substack.com/embed" title="Subscribe to Zigarthanda on Substack" width="480" height="150" loading="lazy"></iframe>
       </div>
     </section>
 
@@ -155,6 +183,7 @@
   </footer>
 
   <script src="landing.js"></script>
+  <script src="home.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
