@@ -366,3 +366,7 @@ img { display: block; max-width: 100%; }
   .hero { min-height: calc(100vh - 186px); min-height: calc(100svh - 186px); }
   .hero .quote-text { font-size: 16px; }
 }
+
+
+/* Landing: name and quote removed; the greeting closes the centred group */
+.hero .greeting { margin-bottom: auto; }
