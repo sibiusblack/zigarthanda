@@ -328,3 +328,25 @@ img { display: block; max-width: 100%; }
 .logo-mark * { vector-effect: non-scaling-stroke; }
 .logo-ticket { stroke: var(--blue); }
 .logo-stub { stroke: var(--plum); }
+
+
+/* ---------- Landing fits one screen; "Begin reading" pinned to its bottom edge ---------- */
+.hero {
+  min-height: calc(100vh - 97px);            /* fallback for older browsers */
+  min-height: calc(100svh - 97px);           /* screen height minus the header */
+  justify-content: center;
+  padding-top: 28px; padding-bottom: 12px;
+}
+.hero .emblem { margin-top: auto; }          /* with the cue below, keeps the content centred */
+.hero .cue { margin-top: auto; padding: 18px 0 14px; }
+.hero .quote { margin-top: 36px; min-height: 0; }
+
+@media (max-width: 600px) {
+  .site-header { padding: 14px 16px; gap: 2px 16px; }
+  .nav { gap: 0 14px; font-size: 12px; letter-spacing: 0.16em; }
+  .hero { min-height: calc(100vh - 120px); min-height: calc(100svh - 120px); padding-top: 16px; }
+  .hero .emblem { margin-bottom: 18px; }
+  .hero .greeting { margin-top: 18px; font-size: 19px; }
+  .hero .quote { margin-top: 26px; }
+  .quote-text { font-size: 23px; }
+}
