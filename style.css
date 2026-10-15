@@ -82,6 +82,10 @@ img { display: block; max-width: 100%; }
 .btn-solid:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: var(--paper); }
 .btn-quiet { color: var(--blue); border: 1px solid var(--blue); }
 .btn-quiet:hover { background: var(--blue); color: var(--paper); }
+.btn-matinee { min-width: 168px; background: var(--blue); color: var(--paper); border: 1px solid var(--blue); }
+.btn-matinee:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: var(--paper); }
+.btn-verandah { min-width: 168px; background: var(--plum); color: var(--paper); border: 1px solid var(--plum); }
+.btn-verandah:hover { background: #55283A; border-color: #55283A; color: var(--paper); }
 
 /* ---------- Chapters ---------- */
 .chapter {
@@ -254,3 +258,19 @@ img { display: block; max-width: 100%; }
 .next-door .nd-go { font-family: var(--label); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--nd); }
 .next-door:hover .nd-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .v-subscribe { border-top: 0; }
+
+/* ---------- Landing: emblem, greeting, rotating quotes ---------- */
+.emblem { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
+.emblem-mark { width: 58px; height: 35px; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.emblem-mark * { vector-effect: non-scaling-stroke; }
+.emblem-matinee { stroke: var(--blue); }
+.emblem-verandah { stroke: var(--plum); }
+.greeting { margin-top: 26px; max-width: 34ch; font-style: italic; font-size: clamp(20px, 3vw, 23px); line-height: 1.55; color: var(--ink-soft); }
+.byline-line { margin-top: 14px; font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); }
+.quote { margin: 48px auto 0; max-width: 32ch; min-height: 7.5em; transition: opacity .6s ease; }
+.quote.is-fading { opacity: 0; }
+.quote-text { margin: 0; font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(24px, 3.4vw, 30px); line-height: 1.35; color: var(--ink); }
+.quote-source { margin-top: 12px; font-family: var(--label); font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase; }
+.quote-film .quote-source { color: var(--blue); }
+.quote-book .quote-source { color: var(--plum); }
+@media (prefers-reduced-motion: reduce) { .quote { transition: none; } }
