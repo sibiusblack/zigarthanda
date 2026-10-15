@@ -45,19 +45,18 @@
 
     <!-- HERO -->
     <section id="top" class="hero">
-      <h1 class="title">Zigarthanda</h1>
-      <p class="byline">writing by</p>
-      <p class="author">Sibiraj</p>
-      <p class="genres"><span class="g-matinee">Matinee</span> &nbsp;·&nbsp; <span class="g-verandah">Verandah</span></p>
-      <p class="tagline">Notes on cinema in every language, books that stay, and the places we carry with us.</p>
-      <div class="actions">
-        <a class="btn btn-solid" href="#subscribe">Read with me</a>
-        <a class="btn btn-quiet" href="https://sibiusblack.substack.com/">Visit the Substack</a>
+      <div class="emblem" aria-hidden="true">
+        <svg class="emblem-mark emblem-matinee" viewBox="0 0 100 60"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>
+        <svg class="emblem-mark emblem-verandah" viewBox="0 0 100 60"><path d="M12 4 H88 A8 8 0 0 0 96 12 V48 A8 8 0 0 0 88 56 H12 A8 8 0 0 0 4 48 V12 A8 8 0 0 0 12 4 Z"/><path d="M50 16 L64 30 L50 44 L36 30 Z"/></svg>
       </div>
-      <a class="latest" href="https://sibiusblack.substack.com/">
-        <span class="latest-tag">Latest · Matinee</span>
-        <span class="latest-title">[Latest piece title]</span>
-      </a>
+      <h1 class="title">Zigarthanda</h1>
+      <p class="greeting" data-greeting>Welcome in. Pull up a chair, and stay as long as you like.</p>
+      <p class="byline-line">writing by Sibiraj</p>
+      <!-- The quotes rotate from the list in landing.js -->
+      <figure class="quote" data-quote aria-live="polite">
+        <blockquote class="quote-text" data-quote-text></blockquote>
+        <figcaption class="quote-source" data-quote-source></figcaption>
+      </figure>
       <a class="cue" href="#writing">Begin reading ↓</a>
     </section>
 
@@ -155,6 +154,7 @@
     <p class="copy">© <span id="year">2026</span> Sibiraj</p>
   </footer>
 
+  <script src="landing.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
