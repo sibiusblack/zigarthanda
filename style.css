@@ -274,3 +274,49 @@ img { display: block; max-width: 100%; }
 .quote-film .quote-source { color: var(--blue); }
 .quote-book .quote-source { color: var(--plum); }
 @media (prefers-reduced-motion: reduce) { .quote { transition: none; } }
+
+/* ---------- Homepage: double bill, pull a ticket, your turn ---------- */
+.bill-section { max-width: var(--wide); margin: 0 auto; padding: 16px 20px 72px; text-align: center; }
+.bill-kicker, .turn-kicker { font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); }
+.bill-title { margin-top: 6px; font-family: var(--display); font-weight: 600; font-size: clamp(32px, 5.5vw, 44px); line-height: 1.1; color: var(--ink); }
+.bill { display: flex; flex-wrap: wrap; align-items: stretch; margin-top: 28px; text-align: left; }
+.bill-card { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 28px; color: var(--ink); text-decoration: none; }
+.bill-card:hover { color: var(--ink); }
+.bill-matinee { background: var(--frost); --door: var(--blue); }
+.bill-verandah { background: var(--paper-deep); --door: var(--plum); }
+.bill-label { display: flex; align-items: center; gap: 8px; font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--door); }
+.bill-name { font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.15; }
+.bill-card:hover .bill-name { color: var(--door); }
+.bill-sub { font-family: var(--label); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+.bill-amp { flex: 0 0 64px; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-size: 44px; color: var(--ink-faint); }
+@media (max-width: 640px) { .bill-amp { flex-basis: 100%; height: 48px; } }
+
+.pull-section { max-width: var(--measure); margin: 0 auto; padding: 64px 20px 80px; border-top: 1px solid var(--hair); text-align: center; }
+.pull-title { font-family: var(--display); font-weight: 600; font-size: clamp(32px, 5.5vw, 44px); line-height: 1.1; color: var(--ink); }
+.pull-lead { margin-top: 8px; font-style: italic; color: var(--ink-soft); }
+.pull-btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; min-height: 48px; padding: 0 26px; border: 1px solid var(--blue); background: transparent; color: var(--blue); font-family: var(--label); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer; transition: background-color .2s, color .2s; }
+.pull-btn:hover { background: var(--blue); color: var(--paper); }
+.pull-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.pulled { display: block; margin: 26px auto 0; max-width: 32ch; text-decoration: none; color: var(--ink); }
+.pulled-label { display: block; font-family: var(--label); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; }
+.pulled-matinee .pulled-label { color: var(--blue); }
+.pulled-verandah .pulled-label { color: var(--plum); }
+.pulled-title { display: block; margin-top: 4px; font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.2; }
+.pulled:hover .pulled-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+
+.your-turn { display: flex; flex-wrap: wrap; max-width: var(--wide); margin: 0 auto 24px; }
+.turn { flex: 1 1 340px; min-width: 0; padding: 44px 36px; }
+.turn-suggest { background: var(--paper-deep); --t: var(--plum); }
+.turn-club { background: var(--frost); --t: var(--blue); }
+.turn-kicker { color: var(--t); }
+.turn-title { margin-top: 6px; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 4.5vw, 38px); line-height: 1.1; color: var(--t); }
+.turn-lead { margin-top: 10px; font-style: italic; color: var(--ink-soft); }
+.inline-form { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.inline-form input[type="text"], .inline-form input[type="email"] { flex: 1 1 220px; min-width: 0; min-height: 46px; padding: 8px 14px; border: 1px solid rgba(30,36,48,.2); background: #FBF8F1; color: var(--ink); font-family: var(--serif); font-size: 18px; }
+.inline-form input:focus { outline: 2px solid var(--t); outline-offset: 2px; }
+.inline-form button { min-height: 46px; padding: 0 22px; border: 0; background: var(--t); color: var(--paper); font-family: var(--label); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer; }
+.inline-form button:hover { filter: brightness(0.88); }
+.form-thanks { margin-top: 22px; font-style: italic; font-size: 20px; color: var(--t); }
+
+/* Anything marked hidden stays hidden, whatever its layout */
+[hidden] { display: none !important; }
