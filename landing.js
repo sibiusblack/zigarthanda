@@ -6,10 +6,10 @@
      Add, remove or reorder freely. kind: "film" shows in Matinee blue, "book" in Verandah plum.
      Keep each line short: one or two sentences reads best. */
   var QUOTES = [
-    { text: "[A line from a film you love.]", source: "[Film], [Year]", kind: "film" },
-    { text: "[A line from a book you love.]", source: "[Author], [Book]", kind: "book" },
+    { text: "Hope is a good thing, maybe the best of things, and no good thing ever dies.", source: "The Shawshank Redemption, 1994", kind: "film" },
+    { text: "Before my wife turned vegetarian, I thought of her as completely unremarkable in every way.", source: "Han Kang, The Vegetarian", kind: "book" },
     { text: "[Another line from a film.]",    source: "[Film], [Year]", kind: "film" },
-    { text: "[Another line from a book.]",    source: "[Author], [Book]", kind: "book" }
+    { text: "Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.",    source: "Gabriel García Márquez, One Hundred Years of Solitude", kind: "book" }
   ];
 
   /* ---------- Greeting by time of day ---------- */
