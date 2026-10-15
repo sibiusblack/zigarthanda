@@ -350,3 +350,19 @@ img { display: block; max-width: 100%; }
   .hero .quote { margin-top: 26px; }
   .quote-text { font-size: 23px; }
 }
+
+
+/* ---------- Landing: quote as a corner epigraph; the doors peek in below ---------- */
+.hero { position: relative; min-height: calc(100vh - 170px); min-height: calc(100svh - 170px); }
+.hero .byline-line { margin-bottom: auto; }
+.hero .quote { align-self: flex-start; margin: 28px 0 0; max-width: 30ch; min-height: 0; padding-left: 14px; border-left: 1px solid var(--hair); text-align: left; }
+.hero .quote-text { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 17px; line-height: 1.5; color: var(--ink-soft); }
+.hero .quote-source { margin-top: 6px; font-size: 11px; }
+.doors { padding-top: 24px; }
+@media (min-width: 900px) and (min-height: 620px) {
+  .hero .quote { position: absolute; bottom: 24px; left: calc(50% - min(50vw, 520px) + 32px); margin: 0; max-width: 28ch; }
+}
+@media (max-width: 600px) {
+  .hero { min-height: calc(100vh - 186px); min-height: calc(100svh - 186px); }
+  .hero .quote-text { font-size: 16px; }
+}
