@@ -400,3 +400,6 @@ a.seat-info:hover .seat-info-title { text-decoration: underline; text-decoration
   .hero { min-height: calc(100vh - 186px); min-height: calc(100svh - 186px); }
   .hero .quote-text { font-size: 16px; }
 }
+
+/* Homepage: box office sits close under Pick a seat */
+.hall-section + .subscribe { padding-top: 16px; }
