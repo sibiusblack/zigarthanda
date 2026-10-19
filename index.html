@@ -56,28 +56,28 @@
     <!-- MATINEE & VERANDAH: two doors -->
     <section id="writing" class="doors" aria-label="Matinee and Verandah">
 
-      <!-- To update a door: change the latest piece's title. -->
-      <a id="matinee" class="door door-matinee" href="matinee.html">
+      <!-- Each door's "Latest" fills itself in from the newest piece in matinee.html / verandah.html. -->
+      <div id="matinee" class="door door-matinee">
         <span class="door-kicker">
           <svg class="door-mark" width="32" height="19" viewBox="0 0 100 60" aria-hidden="true"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>
           The 2:30 show
         </span>
         <span class="door-name">Matinee</span>
         <span class="door-desc">Films and series from every language, watched closely and written slowly.</span>
-        <span class="door-latest"><small>Latest</small><strong>[Latest Matinee title]</strong></span>
-        <span class="door-enter">Enter Matinee →</span>
-      </a>
+        <a class="door-latest" href="matinee.html" data-latest="matinee" hidden><small>Latest</small><strong data-title></strong></a>
+        <a class="door-enter" href="matinee.html">Enter Matinee →</a>
+      </div>
 
-      <a id="verandah" class="door door-verandah" href="verandah.html">
+      <div id="verandah" class="door door-verandah">
         <span class="door-kicker">
           <svg class="door-mark" width="32" height="19" viewBox="0 0 100 60" aria-hidden="true"><path d="M12 4 H88 A8 8 0 0 0 96 12 V48 A8 8 0 0 0 88 56 H12 A8 8 0 0 0 4 48 V12 A8 8 0 0 0 12 4 Z"/><path d="M50 16 L64 30 L50 44 L36 30 Z"/></svg>
           After five, with tea
         </span>
         <span class="door-name">Verandah</span>
         <span class="door-desc">Books and essays from home, the kind you share over evening tea.</span>
-        <span class="door-latest"><small>Latest</small><strong>[Latest Verandah title]</strong></span>
-        <span class="door-enter">Step onto the Verandah →</span>
-      </a>
+        <a class="door-latest" href="verandah.html" data-latest="verandah" hidden><small>Latest</small><strong data-title></strong></a>
+        <a class="door-enter" href="verandah.html">Step onto the Verandah →</a>
+      </div>
 
     </section>
 
