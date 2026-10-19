@@ -133,7 +133,11 @@
         <p class="turn-lead">Send a film or a book my way. The best ones become pieces.</p>
         <form class="inline-form" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST" data-form>
           <label class="sr-only" for="suggestion">Your suggestion</label>
-          <input id="suggestion" name="suggestion" type="text" required placeholder="A film or book, and why">
+          <input id="suggestion" class="field-full" name="suggestion" type="text" required placeholder="A film or book, and why">
+          <label class="sr-only" for="sender-name">Your name (optional)</label>
+          <input id="sender-name" name="name" type="text" autocomplete="name" placeholder="Your name (optional)">
+          <label class="sr-only" for="sender-email">Your email, if you'd like a reply (optional)</label>
+          <input id="sender-email" name="email" type="email" autocomplete="email" placeholder="Your email, for a reply (optional)">
           <input type="hidden" name="_subject" value="Zigarthanda: a suggestion">
           <button type="submit">Send</button>
         </form>
