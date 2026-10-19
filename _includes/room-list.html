@@ -1,0 +1,54 @@
+{%- comment -%}
+  The featured piece, search and list for one room, built automatically from the
+  piece files in the matinee/ or verandah/ folder. Pass: room="matinee" or "verandah".
+{%- endcomment -%}
+{%- assign room_pieces = site.pages | where: "room", include.room | sort: "date" | reverse -%}
+{%- assign shown = 0 -%}
+{%- assign featured = nil -%}
+{%- for p in room_pieces -%}
+  {%- unless p.name contains "template" -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- if p.featured and featured == nil -%}{%- assign featured = p -%}{%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- if featured == nil -%}
+  {%- for p in room_pieces -%}
+    {%- unless p.name contains "template" -%}{%- assign featured = p -%}{%- break -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if shown == 0 %}
+      <p class="empty">The first piece is on its way.</p>
+{%- else %}
+      {%- assign f_words = featured.content | strip_html | number_of_words -%}
+      {%- assign f_mins = f_words | divided_by: 220 | plus: 1 %}
+      <a class="featured" href="{{ featured.url | relative_url }}">
+        {%- if featured.cover %}
+        <span class="featured-cover"><img src="{{ '/images/' | append: include.room | append: '/' | append: featured.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
+        {%- endif %}
+        <span class="featured-body">
+          <span class="featured-label">{% if include.room == "verandah" %}Just poured{% else %}Now showing{% endif %}</span>
+          <span class="meta">{{ featured.date | date: "%-d %B %Y" }} · {{ f_mins }} min read</span>
+          <span class="featured-title">{{ featured.title }}</span>
+          {%- if featured.summary %}
+          <span class="summary">{{ featured.summary }}</span>
+          {%- endif %}
+          <span class="read">Read the piece →</span>
+        </span>
+      </a>
+
+      <div class="filters" role="search" aria-label="Search {{ include.room | capitalize }}">
+        <label class="sr-only" for="q">Search {{ include.room | capitalize }}</label>
+        <input id="q" type="search" placeholder="Search {{ include.room | capitalize }}" data-search>
+      </div>
+      <p class="count" data-count aria-live="polite"></p>
+
+      <ul class="pieces-list" data-pieces>
+      {%- for p in room_pieces -%}
+        {%- unless p.name contains "template" %}
+{% include ticket.html piece=p thumb="yes" %}
+        {%- endunless -%}
+      {%- endfor %}
+      </ul>
+      <p class="empty" data-empty hidden>Try another word, or clear the search to see every piece.</p>
+{%- endif %}
