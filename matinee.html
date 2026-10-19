@@ -1,3 +1,6 @@
+---
+# This line tells GitHub to build the list below automatically. Keep it.
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,65 +48,9 @@
 
     <div class="v-wrap">
 
-      <!-- FEATURED: your latest or favourite piece -->
-      <a class="featured" href="https://sibiusblack.substack.com/">
-        <span class="featured-cover"><img src="images/matinee/featured.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
-        <span class="featured-body">
-          <span class="featured-label">Now showing</span>
-          <span class="meta">[Date] · [8] min read</span>
-          <span class="featured-title">[Featured piece title]</span>
-          <span class="summary">[One or two lines on what the piece is about.]</span>
-          <span class="read">Read the piece →</span>
-        </span>
-      </a>
-
-      <!-- SEARCH -->
-      <div class="filters" role="search" aria-label="Search Matinee">
-        <label class="sr-only" for="q">Search Matinee</label>
-        <input id="q" type="search" placeholder="Search Matinee" data-search>
-      </div>
-      <p class="count" data-count aria-live="polite"></p>
-
-      <!-- LIST: one <li> per piece, newest first.
-           To add a piece: copy a whole <li> block, paste it at the top of the list, and change
-           the link, image, date, reading time, title and summary. -->
-      <ul class="pieces-list" data-pieces>
-
-        <li class="piece-row">
-          <a href="https://sibiusblack.substack.com/">
-            <span class="thumb"><img src="images/matinee/piece-1.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
-            <span class="row-body">
-              <span class="meta">[Date] · [5] min read</span>
-              <span class="row-title">[Piece title]</span>
-              <span class="summary">[One line on what the piece is about.]</span>
-            </span>
-          </a>
-        </li>
-
-        <li class="piece-row">
-          <a href="https://sibiusblack.substack.com/">
-            <span class="thumb"><img src="images/matinee/piece-2.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
-            <span class="row-body">
-              <span class="meta">[Date] · [9] min read</span>
-              <span class="row-title">[Piece title]</span>
-              <span class="summary">[One line on what the piece is about.]</span>
-            </span>
-          </a>
-        </li>
-
-        <li class="piece-row">
-          <a href="https://sibiusblack.substack.com/">
-            <span class="thumb"><img src="images/matinee/piece-3.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
-            <span class="row-body">
-              <span class="meta">[Date] · [6] min read</span>
-              <span class="row-title">[Piece title]</span>
-              <span class="summary">[One line on what the piece is about.]</span>
-            </span>
-          </a>
-        </li>
-
-      </ul>
-      <p class="empty" data-empty hidden>Try another word, or clear the search to see every piece.</p>
+      <!-- FEATURED PIECE, SEARCH AND LIST: built automatically from the files in the matinee/ folder.
+           Nothing to edit here: publish a piece by adding a file to the matinee folder. -->
+{% include room-list.html room="matinee" %}
 
       <!-- EXTRAS -->
       <div class="extras">
