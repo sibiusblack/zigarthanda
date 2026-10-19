@@ -30,8 +30,9 @@
           <span class="featured-label">{% if include.room == "verandah" %}Just poured{% else %}Now showing{% endif %}</span>
           <span class="meta">{{ featured.date | date: "%-d %B %Y" }} · {{ f_mins }} min read</span>
           <span class="featured-title">{{ featured.title }}</span>
-          {%- if featured.summary %}
-          <span class="summary">{{ featured.summary }}</span>
+          {%- assign f_desc = featured.description | default: featured.summary -%}
+          {%- if f_desc %}
+          <span class="summary">{{ f_desc }}</span>
           {%- endif %}
           <span class="read">Read the piece →</span>
         </span>
