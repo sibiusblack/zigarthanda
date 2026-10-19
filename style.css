@@ -147,11 +147,10 @@ img { display: block; max-width: 100%; }
 
 /* Box office: the Substack sign-up inside a ticket-window arch */
 .box-office { max-width: 620px; margin: 0 auto; }
-.bo-arch { padding: 54px 40px 26px; border: 1.5px solid var(--v, var(--blue)); border-bottom: 0; border-radius: 300px 300px 0 0; }
-.bo-kicker { font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--v, var(--blue)); }
+.bo-arch { padding: 46px 40px 26px; border: 1.5px solid var(--v, var(--blue)); border-bottom: 0; border-radius: 50% 50% 0 0 / 120px 120px 0 0; }.bo-kicker { font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--v, var(--blue)); }
 .box-office .embed { margin-top: 14px; }
 .bo-ledge { height: 10px; background: var(--v, var(--blue)); border-radius: 0 0 4px 4px; }
-@media (max-width: 540px) { .bo-arch { padding: 44px 16px 18px; border-radius: 160px 160px 0 0; } }
+@media (max-width: 540px) { .bo-arch { padding: 40px 16px 18px; border-radius: 50% 50% 0 0 / 90px 90px 0 0; } }
 
 /* ---------- Footer ---------- */
 .site-footer {
