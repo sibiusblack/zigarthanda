@@ -1,0 +1,15 @@
+# Zigarthanda — site settings for GitHub Pages.
+# You rarely need to touch this file.
+
+title: Zigarthanda
+url: "https://zigarthanda.in"
+timezone: America/Toronto
+
+# Builds sitemap.xml (a list of every page, for Google) and robots.txt,
+# and updates both automatically every time you publish.
+plugins:
+  - jekyll-sitemap
+
+# Files that are part of the repository but not part of the website.
+exclude:
+  - README.md
