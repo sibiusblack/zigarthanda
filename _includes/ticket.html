@@ -13,8 +13,9 @@
             <span class="row-body">
               <span class="meta">{% if include.mark %}{{ t.room | capitalize }} · {% endif %}{{ t.date | date: "%-d %B %Y" }} · {{ t_mins }} min read</span>
               <span class="row-title">{{ t.title }}</span>
-              {%- if include.thumb and t.summary %}
-              <span class="summary">{{ t.summary }}</span>
+              {%- assign t_desc = t.description | default: t.summary -%}
+              {%- if include.thumb and t_desc %}
+              <span class="summary">{{ t_desc }}</span>
               {%- endif %}
             </span>
             {%- if include.mark %}
