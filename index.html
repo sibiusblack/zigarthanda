@@ -101,18 +101,30 @@
       </div>
     </section>
 
-    <!-- PULL A TICKET: picks a random piece from matinee.html and verandah.html -->
-    <section class="pull-section" data-pull hidden>
-      <h2 class="pull-title">Can't choose?</h2>
-      <p class="pull-lead">Pull a ticket, and I'll pick something for you.</p>
-      <button class="pull-btn" type="button" data-pull-btn>
-        <svg class="door-mark" width="26" height="16" viewBox="0 0 100 60" aria-hidden="true"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>
-        Pull a ticket
-      </button>
-      <a class="pulled" href="#" data-pulled hidden aria-live="polite">
-        <span class="pulled-label" data-label></span>
-        <span class="pulled-title" data-title></span>
-      </a>
+    <!-- PICK A SEAT: every piece from matinee.html and verandah.html is a seat in the hall.
+    Seats fill in as you add pieces; the ones a reader has read show darker, on their own browser. -->
+    <section class="hall-section" data-hall hidden>
+      <h2 class="hall-title">Pick a seat</h2>
+      <p class="hall-lead">Every seat is a piece. Choose one, and see what's playing.</p>
+      <p class="hall-screen">Screen</p>
+      <div class="seats" data-seats></div>
+      <p class="hall-key"><span><i class="key-m"></i>Matinee</span><span><i class="key-v"></i>Verandah</span><span><i class="key-read"></i>Already read</span></p>
+      <a class="seat-info" data-seat-info aria-live="polite"><span class="seat-info-go">Choose a seat.</span></a>
+    </section>
+
+    <!-- BOX OFFICE: the Substack sign-up, inside a ticket-window arch -->
+    <section id="subscribe" class="chapter subscribe v-subscribe">
+      <div class="box-office">
+        <div class="bo-arch">
+          <p class="bo-kicker">Box office</p>
+          <h2>A seat for every new piece</h2>
+          <p class="chapter-lead">About five new pieces a month, straight to your inbox, free.</p>
+          <div class="embed">
+            <iframe src="https://sibiusblack.substack.com/embed" title="Subscribe to Zigarthanda on Substack" width="480" height="150" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="bo-ledge"></div>
+      </div>
     </section>
 
     <!-- YOUR TURN: suggestions and the club. Both forms send to your email through Formspree.
