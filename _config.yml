@@ -2,13 +2,40 @@
 # You rarely need to touch this file.
 
 title: Zigarthanda
+description: "Essays on cinema in every language, books that stay with you, and stories carried from home. Writing by Sibiraj."
 url: "https://zigarthanda.in"
+lang: en
 timezone: America/Toronto
 
-# Builds sitemap.xml (a list of every page, for Google) and robots.txt,
-# and updates both automatically every time you publish.
+# Who writes here — used in Google's article details for every piece
+author:
+  name: Sibiraj
+social:
+  name: Sibiraj
+  links:
+    - https://www.instagram.com/zigarthanda
+    - https://sibiusblack.substack.com
+    # - your Letterboxd profile link
+    # - your Goodreads profile link
+
 plugins:
-  - jekyll-sitemap
+  - jekyll-sitemap   # builds sitemap.xml and robots.txt for Google, updated every time you publish
+  - jekyll-seo-tag   # writes the search and link-preview details on every piece
+
+# Every piece in matinee/ and verandah/ is marked as an article by Sibiraj
+defaults:
+  - scope:
+      path: "matinee"
+    values:
+      author: Sibiraj
+      seo:
+        type: BlogPosting
+  - scope:
+      path: "verandah"
+    values:
+      author: Sibiraj
+      seo:
+        type: BlogPosting
 
 # Files that are part of the repository but not part of the website.
 exclude:
