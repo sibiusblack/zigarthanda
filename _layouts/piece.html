@@ -10,6 +10,7 @@
   <meta property="og:description" content="{{ page.summary }}">
   <meta property="og:type" content="article">
   <meta name="theme-color" content="#FAF8F3">
+  <script src="{{ '/theme.js' | relative_url }}"></script>
   <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,7 @@
       <a class="nav-verandah" href="{{ '/verandah.html' | relative_url }}"{% if page.room == "verandah" %} aria-current="page"{% endif %}>Verandah</a>
       <a href="{{ '/#about' | relative_url }}">About</a>
       <a href="#subscribe">Subscribe</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark"></button>
     </nav>
   </header>
 
