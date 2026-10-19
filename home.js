@@ -16,8 +16,7 @@
         vertical: vertical,
         href: href,
         title: t.textContent.trim(),
-        meta: ((a.querySelector('.meta') || {}).textContent || '').trim(),
-        subject: ((a.querySelector('.subject') || {}).textContent || '').trim()
+        meta: ((a.querySelector('.meta') || {}).textContent || '').trim()
       });
     });
     return out;
@@ -42,7 +41,7 @@
   function fill(card, piece) {
     card.href = piece.href;
     card.querySelector('[data-title]').textContent = piece.title;
-    card.querySelector('[data-sub]').textContent = piece.subject || piece.meta;
+    card.querySelector('[data-sub]').textContent = piece.meta;
     card.onclick = function () { markRead(piece.title); };
   }
 
@@ -113,7 +112,7 @@
           info.href = p.href;
           info.className = 'seat-info ' + (isV ? 'is-v' : 'is-m');
           info.innerHTML = '';
-          [['seat-info-label', name + ' · ' + p.vertical + (p.meta ? ' · ' + p.meta.split('·')[0].trim() : '')],
+          [['seat-info-label', name + ' · ' + p.vertical],
            ['seat-info-title', p.title],
            ['seat-info-go', 'Take this seat →']].forEach(function (part) {
             var el = document.createElement('span'); el.className = part[0]; el.textContent = part[1]; info.appendChild(el);
