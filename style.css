@@ -445,3 +445,44 @@ a.seat-info:hover .seat-info-title { text-decoration: underline; text-decoration
 
 /* Your turn: the suggestion takes the full row, name and email share the next */
 .inline-form input.field-full { flex: 1 1 100%; }
+
+/* ---------- Light and dark ---------- */
+/* The switch at the end of the menu (its icon is drawn by theme.js) */
+.nav { align-items: center; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 1px solid var(--hair); border-radius: 50%; background: transparent; color: var(--ink-soft); cursor: pointer; transition: color .2s, border-color .2s; }
+.theme-toggle:hover { color: var(--blue); border-color: var(--blue); }
+.theme-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.theme-toggle:empty { visibility: hidden; }
+.theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Cinema dark: a warm near-black, like a hall with the lights down */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #17140F;
+  --paper-deep: #241E17;
+  --frost: #1B2532;
+  --frost-line: #34465C;
+  --ink: #EDE6DA;
+  --ink-soft: #C9C1B4;
+  --ink-faint: #9A9286;
+  --blue: #93B4D6;
+  --blue-deep: #B5CDE6;
+  --plum: #D99CB0;
+  --red: #E58A9C;
+  --hair: #2F2A23;
+}
+:root[data-theme="dark"] .page-verandah,
+:root[data-theme="dark"] .room-verandah { --v-line: #4A3F33; }
+:root[data-theme="dark"] .door-latest { border-top-color: rgba(237,230,218,.15); }
+:root[data-theme="dark"] .featured-cover,
+:root[data-theme="dark"] .piece-row .thumb { background: rgba(255,255,255,.06); }
+:root[data-theme="dark"] .filters select,
+:root[data-theme="dark"] .filters input,
+:root[data-theme="dark"] .inline-form input[type="text"],
+:root[data-theme="dark"] .inline-form input[type="email"] { background: #1F1A14; border-color: rgba(237,230,218,.2); color: var(--ink); }
+:root[data-theme="dark"] .door:hover { box-shadow: 0 14px 30px -18px rgba(0,0,0,.8); }
+/* The box office stays lit: Substack's sign-up box is always light */
+:root[data-theme="dark"] .bo-kicker { color: #23476A; }
+:root[data-theme="dark"] .page-verandah .bo-kicker { color: #6B3346; }
+body { transition: background-color .3s ease, color .3s ease; }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
