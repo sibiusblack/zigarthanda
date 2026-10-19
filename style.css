@@ -147,7 +147,9 @@ img { display: block; max-width: 100%; }
 
 /* Box office: the Substack sign-up inside a ticket-window arch */
 .box-office { max-width: 620px; margin: 0 auto; }
-.bo-arch { padding: 46px 40px 26px; border: 1.5px solid var(--v, var(--blue)); border-bottom: 0; border-radius: 50% 50% 0 0 / 120px 120px 0 0; background: #FFFFFF; }.box-office .embed { margin-top: 14px; }
+.bo-arch { padding: 46px 40px 26px; border: 1.5px solid var(--v, var(--blue)); border-bottom: 0; border-radius: 50% 50% 0 0 / 120px 120px 0 0; background: #FFFFFF; }
+.bo-kicker { font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--v, var(--blue)); }
+.box-office .embed { margin-top: 14px; }
 .bo-ledge { height: 10px; background: var(--v, var(--blue)); border-radius: 0 0 4px 4px; }
 @media (max-width: 540px) { .bo-arch { padding: 40px 16px 18px; border-radius: 50% 50% 0 0 / 90px 90px 0 0; } }
 
@@ -400,3 +402,24 @@ a.seat-info:hover .seat-info-title { text-decoration: underline; text-decoration
 
 /* Homepage: box office sits close under Pick a seat */
 .hall-section + .subscribe { padding-top: 16px; }
+
+/* ---------- A single piece: minimal reading page (matinee/… and verandah/…) ---------- */
+.room-matinee  { --v: var(--blue); --v-bg: var(--frost);      --v-line: var(--frost-line); }
+.room-verandah { --v: var(--plum); --v-bg: var(--paper-deep); --v-line: #D3C6AC; }
+.post-head { max-width: var(--measure); margin: 0 auto; padding: 64px 20px 0; }
+.post-label { font-family: var(--label); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--v); text-decoration: none; }
+.post-label:hover { text-decoration: underline; text-underline-offset: 4px; }
+.post-title { margin-top: 12px; font-family: var(--display); font-weight: 600; font-size: clamp(40px, 7vw, 56px); line-height: 1.05; color: var(--ink); }
+.post-meta { margin-top: 14px; font-size: 16px; color: var(--ink-faint); }
+.post-body { max-width: var(--measure); margin: 0 auto; padding: 40px 20px 64px; font-size: 20px; line-height: 1.75; color: var(--ink); }
+.post-body p + p { margin-top: 1.1em; }
+.post-body h2 { margin: 1.8em 0 .4em; font-family: var(--display); font-weight: 600; font-size: 28px; line-height: 1.2; color: var(--ink); }
+.post-body blockquote { margin: 1.4em 0; padding-left: 20px; border-left: 2px solid var(--v); font-style: italic; color: var(--ink-soft); }
+.post-body hr { border: 0; margin: 2em 0; text-align: center; color: var(--ink-faint); letter-spacing: 0.6em; }
+.post-body hr::before { content: "· · ·"; }
+@media (max-width: 540px) { .post-body { font-size: 19px; } }
+.post-more { max-width: var(--measure); margin: 0 auto; padding: 40px 20px 8px; border-top: 1px solid var(--hair); }
+.post-more-label { font-family: var(--label); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); text-align: center; }
+.post-more .pieces-list { margin-top: 18px; }
+.stub svg { width: 34px; height: 20px; fill: none; stroke: var(--v); stroke-width: 1.5; }
+.stub svg * { vector-effect: non-scaling-stroke; }
