@@ -13,11 +13,9 @@
 </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} — {{ page.room | capitalize }} — Zigarthanda</title>
-  <meta name="description" content="{{ page.summary }}">
-  <meta property="og:title" content="{{ page.title }}">
-  <meta property="og:description" content="{{ page.summary }}">
-  <meta property="og:type" content="article">
+  <!-- Title, description, canonical address, link previews and article details for Google:
+       written automatically from the lines at the top of each piece -->
+  {% seo %}
   <meta name="theme-color" content="#FAF8F3">
   <script src="{{ '/theme.js' | relative_url }}"></script>
   <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
