@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<!-- The design every Matinee and Verandah piece uses. You don't need to edit this file to publish. -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} — {{ page.room | capitalize }} — Zigarthanda</title>
+  <meta name="description" content="{{ page.summary }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.summary }}">
+  <meta property="og:type" content="article">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body class="page-{{ page.room }}">
+
+  <header class="site-header">
+    <a class="mark" href="{{ '/' | relative_url }}" aria-label="Zigarthanda, home"><svg class="logo-mark" width="34" height="20" viewBox="0 0 100 60" aria-hidden="true"><path class="logo-ticket" d="M58 4 H4 V22 A8 8 0 0 1 4 38 V56 H58"/><path class="logo-stub" d="M58 4 H89 A7 7 0 0 0 96 11 V49 A7 7 0 0 0 89 56 H58"/><path class="logo-stub" d="M58 8 V52" stroke-dasharray="3 4"/><path class="logo-stub" d="M77 19 L88 30 L77 41 L66 30 Z"/></svg>Zigarthanda</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-matinee" href="{{ '/matinee.html' | relative_url }}"{% if page.room == "matinee" %} aria-current="page"{% endif %}>Matinee</a>
+      <a class="nav-verandah" href="{{ '/verandah.html' | relative_url }}"{% if page.room == "verandah" %} aria-current="page"{% endif %}>Verandah</a>
+      <a href="{{ '/#about' | relative_url }}">About</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <div class="post-head">
+        <a class="post-label" href="{{ '/' | append: page.room | append: '.html' | relative_url }}">{{ page.room | capitalize }}</a>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {%- assign words = content | strip_html | number_of_words %}
+        <p class="post-meta">{{ page.date | date: "%-d %B %Y" }} · {{ words | divided_by: 220 | plus: 1 }} min read</p>
+      </div>
+
+      <div class="post-body">
+{{ content }}
+      </div>
+    </article>
+
+    <!-- KEEP READING: filled in automatically — the newest other piece from this room,
+         and the newest piece from next door. -->
+    {%- if page.room == "verandah" %}{% assign other_room = "matinee" %}{% else %}{% assign other_room = "verandah" %}{% endif %}
+    {%- assign same_room = site.pages | where: "room", page.room | sort: "date" | reverse %}
+    {%- assign next_door = site.pages | where: "room", other_room | sort: "date" | reverse %}
+    {%- assign pick_same = nil %}{% assign pick_next = nil %}
+    {%- for p in same_room %}{% unless p.name contains "template" or p.url == page.url %}{% assign pick_same = p %}{% break %}{% endunless %}{% endfor %}
+    {%- for p in next_door %}{% unless p.name contains "template" %}{% assign pick_next = p %}{% break %}{% endunless %}{% endfor %}
+    {%- if pick_same or pick_next %}
+    <section class="post-more">
+      <p class="post-more-label">Keep reading</p>
+      <ul class="pieces-list">
+      {%- if pick_same %}
+{% include ticket.html piece=pick_same mark="yes" %}
+      {%- endif %}
+      {%- if pick_next %}
+{% include ticket.html piece=pick_next mark="yes" %}
+      {%- endif %}
+      </ul>
+    </section>
+    {%- endif %}
+
+    <!-- BOX OFFICE -->
+    <section id="subscribe" class="chapter subscribe v-subscribe">
+      <div class="box-office">
+        <div class="bo-arch">
+          <p class="bo-kicker">Box office</p>
+          <div class="embed">
+            <iframe src="https://sibiusblack.substack.com/embed" title="Subscribe to Zigarthanda on Substack" width="480" height="150" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="bo-ledge"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-mark">Zigarthanda</p>
+    <nav class="footer-links" aria-label="Elsewhere">
+      <a href="https://sibiusblack.substack.com/">Substack</a>
+      <a href="https://www.instagram.com/zigarthanda">Instagram</a>
+      <a href="[YOUR LETTERBOXD URL]">Letterboxd</a>
+      <a href="[YOUR GOODREADS URL]">Goodreads</a>
+    </nav>
+    <p class="copy">© <span id="year-copy">2026</span> Sibiraj</p>
+  </footer>
+
+  <script src="{{ '/filters.js' | relative_url }}"></script>
+  <script>document.getElementById('year-copy').textContent = new Date().getFullYear();</script>
+</body>
+</html>
