@@ -1,0 +1,24 @@
+{%- comment -%}
+  One piece as a ticket. Used by the Matinee/Verandah lists and by "Keep reading".
+  Pass: piece=the page, mark="yes" to show the room's mark in the stub (Keep reading only).
+{%- endcomment -%}
+{%- assign t = include.piece -%}
+{%- assign t_words = t.content | strip_html | number_of_words -%}
+{%- assign t_mins = t_words | divided_by: 220 | plus: 1 -%}
+        <li class="piece-row room-{{ t.room }}">
+          <a href="{{ t.url | relative_url }}">
+            {%- if include.thumb and t.cover %}
+            <span class="thumb"><img src="{{ '/images/' | append: t.room | append: '/' | append: t.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
+            {%- endif %}
+            <span class="row-body">
+              <span class="meta">{% if include.mark %}{{ t.room | capitalize }} · {% endif %}{{ t.date | date: "%-d %B %Y" }} · {{ t_mins }} min read</span>
+              <span class="row-title">{{ t.title }}</span>
+              {%- if include.thumb and t.summary %}
+              <span class="summary">{{ t.summary }}</span>
+              {%- endif %}
+            </span>
+            {%- if include.mark %}
+            <span class="stub" aria-hidden="true">{% if t.room == "verandah" %}<svg viewBox="0 0 100 60"><path d="M12 4 H88 A8 8 0 0 0 96 12 V48 A8 8 0 0 0 88 56 H12 A8 8 0 0 0 4 48 V12 A8 8 0 0 0 12 4 Z"/><path d="M50 16 L64 30 L50 44 L36 30 Z"/></svg>{% else %}<svg viewBox="0 0 100 60"><path d="M4 4 H96 V22 A8 8 0 0 0 96 38 V56 H4 V38 A8 8 0 0 0 4 22 Z"/><path d="M72 9 V51" stroke-dasharray="3 4"/></svg>{% endif %}</span>
+            {%- endif %}
+          </a>
+        </li>
