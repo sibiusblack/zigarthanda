@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matinee — Zigarthanda</title>
-  <meta name="description" content="Matinee: films and series from every language, watched closely and written slowly. Film essays and reviews by Sibiraj.">
+  <meta name="description" content="Matinee: films and series from every language, watched closely and written slowly. By Sibiraj.">
   <link rel="canonical" href="https://zigarthanda.in/matinee.html">
   <meta name="theme-color" content="#FAF8F3">
-  
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zigarthanda.in/matinee.html">
   <meta property="og:title" content="Matinee — Zigarthanda">
@@ -24,10 +24,10 @@
 <body class="page-matinee">
 
   <header class="site-header">
-    <a class="mark" href="index.html" aria-label="Zigarthanda, home"><svg class="logo-mark" width="34" height="20" viewBox="0 0 100 60" aria-hidden="true"><path class="logo-ticket" d="M58 4 H4 V22 A8 8 0 0 1 4 38 V56 H58"/><path class="logo-stub" d="M58 4 H89 A7 7 0 0 0 96 11 V49 A7 7 0 0 0 89 56 H58"/><path class="logo-stub" d="M58 8 V52" stroke-dasharray="3 4"/><path class="logo-stub" d="M77 19 L88 30 L77 41 L66 30 Z"/></svg>Zigarthanda</a>    <nav class="nav" aria-label="Main">
+    <a class="mark" href="index.html" aria-label="Zigarthanda, home"><svg class="logo-mark" width="34" height="20" viewBox="0 0 100 60" aria-hidden="true"><path class="logo-ticket" d="M58 4 H4 V22 A8 8 0 0 1 4 38 V56 H58"/><path class="logo-stub" d="M58 4 H89 A7 7 0 0 0 96 11 V49 A7 7 0 0 0 89 56 H58"/><path class="logo-stub" d="M58 8 V52" stroke-dasharray="3 4"/><path class="logo-stub" d="M77 19 L88 30 L77 41 L66 30 Z"/></svg>Zigarthanda</a>
+    <nav class="nav" aria-label="Main">
       <a class="nav-matinee" href="matinee.html" aria-current="page">Matinee</a>
       <a class="nav-verandah" href="verandah.html">Verandah</a>
-      <a href="index.html#now">Now</a>
       <a href="index.html#about">About</a>
       <a href="#subscribe">Subscribe</a>
     </nav>
@@ -41,7 +41,6 @@
       <p class="v-kicker">The 2:30 show</p>
       <h1 class="v-title">Matinee</h1>
       <p class="v-lead">[A short intro in your voice: what Matinee is, why you write about films, and what readers will find here.]</p>
-      <p class="v-topics">Film essays · Film &amp; TV reviews</p>
     </section>
 
     <div class="v-wrap">
@@ -51,24 +50,15 @@
         <span class="featured-cover"><img src="images/matinee/featured.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
         <span class="featured-body">
           <span class="featured-label">Now showing</span>
-          <span class="meta">Film essay · [Date] · [8] min read</span>
+          <span class="meta">[Date] · [8] min read</span>
           <span class="featured-title">[Featured piece title]</span>
-          <span class="subject">[Film] ([Year]) · dir. [Director] · [Language]</span>
           <span class="summary">[One or two lines on what the piece is about.]</span>
           <span class="read">Read the piece →</span>
         </span>
       </a>
 
-      <!-- FILTERS -->
-      <div class="filters" role="search" aria-label="Filter Matinee pieces">
-        <div class="chips" data-filter="type" aria-label="Type">
-          <button type="button" class="chip" data-value="all" aria-pressed="true">All</button>
-        </div>
-        <div class="chips" data-filter="lang" aria-label="Language">
-          <button type="button" class="chip" data-value="all" aria-pressed="true">Every language</button>
-        </div>
-        <label class="sr-only" for="year">Year</label>
-        <select id="year" data-filter-year><option value="all">Any year</option></select>
+      <!-- SEARCH -->
+      <div class="filters" role="search" aria-label="Search Matinee">
         <label class="sr-only" for="q">Search Matinee</label>
         <input id="q" type="search" placeholder="Search Matinee" data-search>
       </div>
@@ -76,47 +66,44 @@
 
       <!-- LIST: one <li> per piece, newest first.
            To add a piece: copy a whole <li> block, paste it at the top of the list, and change
-           data-type, data-lang, data-year, the link, image, date, title, film details and summary. -->
+           the link, image, date, reading time, title and summary. -->
       <ul class="pieces-list" data-pieces>
 
-        <li class="piece-row" data-type="Review" data-lang="Tamil" data-year="2026">
+        <li class="piece-row">
           <a href="https://sibiusblack.substack.com/">
             <span class="thumb"><img src="images/matinee/piece-1.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
             <span class="row-body">
-              <span class="meta">Review · [Date] · [5] min read</span>
+              <span class="meta">[Date] · [5] min read</span>
               <span class="row-title">[Piece title]</span>
-              <span class="subject">[Film] ([Year]) · dir. [Director] · Tamil</span>
               <span class="summary">[One line on what the piece is about.]</span>
             </span>
           </a>
         </li>
 
-        <li class="piece-row" data-type="Film essay" data-lang="Malayalam" data-year="2026">
+        <li class="piece-row">
           <a href="https://sibiusblack.substack.com/">
             <span class="thumb"><img src="images/matinee/piece-2.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
             <span class="row-body">
-              <span class="meta">Film essay · [Date] · [9] min read</span>
+              <span class="meta">[Date] · [9] min read</span>
               <span class="row-title">[Piece title]</span>
-              <span class="subject">[Film] ([Year]) · dir. [Director] · Malayalam</span>
               <span class="summary">[One line on what the piece is about.]</span>
             </span>
           </a>
         </li>
 
-        <li class="piece-row" data-type="Review" data-lang="Korean" data-year="2025">
+        <li class="piece-row">
           <a href="https://sibiusblack.substack.com/">
             <span class="thumb"><img src="images/matinee/piece-3.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
             <span class="row-body">
-              <span class="meta">Review · [Date] · [6] min read</span>
+              <span class="meta">[Date] · [6] min read</span>
               <span class="row-title">[Piece title]</span>
-              <span class="subject">[Series] ([Year]) · created by [Name] · Korean</span>
               <span class="summary">[One line on what the piece is about.]</span>
             </span>
           </a>
         </li>
 
       </ul>
-      <p class="empty" data-empty hidden>Try another filter, or clear the search to see every piece.</p>
+      <p class="empty" data-empty hidden>Try another word, or clear the search to see every piece.</p>
 
       <!-- EXTRAS -->
       <div class="extras">
