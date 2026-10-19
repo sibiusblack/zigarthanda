@@ -9,6 +9,7 @@
   function collect(doc, vertical, page) {
     var out = [];
     doc.querySelectorAll('a.featured, .piece-row a').forEach(function (a) {
+      var isFeatured = a.classList.contains('featured');
       var t = a.querySelector('.featured-title, .row-title');
       if (!t) return;
       var href = a.getAttribute('href') || page;
@@ -16,7 +17,8 @@
         vertical: vertical,
         href: href,
         title: t.textContent.trim(),
-        meta: ((a.querySelector('.meta') || {}).textContent || '').trim()
+        meta: ((a.querySelector('.meta') || {}).textContent || '').trim(),
+        featured: isFeatured
       });
     });
     return out;
@@ -47,6 +49,17 @@
 
   load().then(function (data) {
     var all = data.matinee.concat(data.verandah);
+
+    /* Each door's "Latest": the newest piece, the top of that page's list */
+    [['matinee', data.matinee], ['verandah', data.verandah]].forEach(function (pair) {
+      var link = document.querySelector('[data-latest="' + pair[0] + '"]');
+      var newest = pair[1].filter(function (p) { return !p.featured; })[0] || pair[1][0];
+      if (!link || !newest) return;
+      link.href = newest.href;
+      link.querySelector('[data-title]').textContent = newest.title;
+      link.onclick = function () { markRead(newest.title); };
+      link.hidden = false;
+    });
 
     /* Tonight's double bill */
     var bill = document.querySelector('[data-bill]');
