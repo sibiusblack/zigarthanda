@@ -1,3 +1,8 @@
+---
+# These lines let GitHub fill in the right addresses for the stylesheet and links. Keep them.
+layout: null
+permalink: /404.html
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,20 +11,20 @@
   <title>Wrong screen — Zigarthanda</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#FAF8F3">
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
 
   <header class="site-header">
-    <a class="mark" href="/" aria-label="Zigarthanda, home"><svg class="logo-mark" width="34" height="20" viewBox="0 0 100 60" aria-hidden="true"><path class="logo-ticket" d="M58 4 H4 V22 A8 8 0 0 1 4 38 V56 H58"/><path class="logo-stub" d="M58 4 H89 A7 7 0 0 0 96 11 V49 A7 7 0 0 0 89 56 H58"/><path class="logo-stub" d="M58 8 V52" stroke-dasharray="3 4"/><path class="logo-stub" d="M77 19 L88 30 L77 41 L66 30 Z"/></svg>Zigarthanda</a>
+    <a class="mark" href="{{ '/' | relative_url }}" aria-label="Zigarthanda, home"><svg class="logo-mark" width="34" height="20" viewBox="0 0 100 60" aria-hidden="true"><path class="logo-ticket" d="M58 4 H4 V22 A8 8 0 0 1 4 38 V56 H58"/><path class="logo-stub" d="M58 4 H89 A7 7 0 0 0 96 11 V49 A7 7 0 0 0 89 56 H58"/><path class="logo-stub" d="M58 8 V52" stroke-dasharray="3 4"/><path class="logo-stub" d="M77 19 L88 30 L77 41 L66 30 Z"/></svg>Zigarthanda</a>
     <nav class="nav" aria-label="Main">
-      <a class="nav-matinee" href="/matinee.html">Matinee</a>
-      <a class="nav-verandah" href="/verandah.html">Verandah</a>
-      <a href="/#about">About</a>
+      <a class="nav-matinee" href="{{ '/matinee.html' | relative_url }}">Matinee</a>
+      <a class="nav-verandah" href="{{ '/verandah.html' | relative_url }}">Verandah</a>
+      <a href="{{ '/#about' | relative_url }}">About</a>
     </nav>
   </header>
 
@@ -30,10 +35,10 @@
       <h1 class="lost-title">Wrong screen</h1>
       <p class="lost-lead">This show has moved to another hall. Both doors are right this way.</p>
       <div class="lost-doors">
-        <a class="lost-door lost-matinee" href="/matinee.html">Matinee →</a>
-        <a class="lost-door lost-verandah" href="/verandah.html">Verandah →</a>
+        <a class="lost-door lost-matinee" href="{{ '/matinee.html' | relative_url }}">Matinee →</a>
+        <a class="lost-door lost-verandah" href="{{ '/verandah.html' | relative_url }}">Verandah →</a>
       </div>
-      <a class="lost-home" href="/">Back to the lobby</a>
+      <a class="lost-home" href="{{ '/' | relative_url }}">Back to the lobby</a>
     </section>
   </main>
 
