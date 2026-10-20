@@ -486,3 +486,25 @@ a.seat-info:hover .seat-info-title { text-decoration: underline; text-decoration
 :root[data-theme="dark"] .page-verandah .bo-kicker { color: #6B3346; }
 body { transition: background-color .3s ease, color .3s ease; }
 @media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
+/* ---------- Sticky menu: the header stays at the top while you scroll ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--paper);
+  box-shadow: 0 0 0 100vmax var(--paper);   /* paper fills the full width behind it */
+  clip-path: inset(0 -100vmax);
+  transition: padding .2s;
+}
+.site-header::after {   /* a full-width hairline appears under it once you scroll */
+  content: ""; position: absolute; left: 50%; bottom: 0; width: 100vw; height: 1px;
+  transform: translateX(-50%); background: var(--hair); opacity: 0; transition: opacity .2s;
+}
+.site-header.is-stuck { padding-top: 10px; padding-bottom: 10px; }
+.site-header.is-stuck::after { opacity: 1; }
+html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the menu, not under it */
+@media (max-width: 540px) {
+  .site-header { padding-top: 10px; padding-bottom: 6px; }
+  .site-header.is-stuck { padding-top: 6px; padding-bottom: 2px; }
+  .nav a { padding: 8px 0; }
+  html { scroll-padding-top: 100px; }
+}
