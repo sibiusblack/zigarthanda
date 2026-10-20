@@ -2,7 +2,7 @@
    Tonight's double bill and Pick a seat read the pieces straight from matinee.html and
    verandah.html, so they update themselves whenever you add a piece there.
    Pick a seat shows the pieces a reader has already opened as darker seats (their browser only).
-   The two forms (suggestions and the club) send to your email through Formspree. */
+   The suggestion form sends to your email through Formspree. */
 (function () {
 
   /* ---------- Gather pieces from the two vertical pages ---------- */
@@ -28,12 +28,12 @@
     if (window.ZIG_PIECES) return Promise.resolve(window.ZIG_PIECES);
     var parse = function (html) { return new DOMParser().parseFromString(html, 'text/html'); };
     return Promise.all([
-      fetch('matinee.html').then(function (r) { return r.text(); }),
-      fetch('verandah.html').then(function (r) { return r.text(); })
+      fetch('/matinee/').then(function (r) { return r.text(); }),
+      fetch('/verandah/').then(function (r) { return r.text(); })
     ]).then(function (pages) {
       return {
-        matinee: collect(parse(pages[0]), 'Matinee', 'matinee.html'),
-        verandah: collect(parse(pages[1]), 'Verandah', 'verandah.html')
+        matinee: collect(parse(pages[0]), 'Matinee', '/matinee/'),
+        verandah: collect(parse(pages[1]), 'Verandah', '/verandah/')
       };
     });
   }
