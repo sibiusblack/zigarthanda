@@ -43,3 +43,16 @@
     });
   });
 })();
+
+
+/* Sticky menu: a hairline appears under it once the page scrolls */
+(function () {
+  function watch() {
+    var h = document.querySelector('.site-header');
+    if (!h) return;
+    var update = function () { h.classList.toggle('is-stuck', window.scrollY > 8); };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch); else watch();
+})();
