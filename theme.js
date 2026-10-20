@@ -44,7 +44,6 @@
   });
 })();
 
-
 /* Sticky menu: a hairline appears under it once the page scrolls */
 (function () {
   function watch() {
@@ -55,4 +54,39 @@
     update();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch); else watch();
+})();
+
+/* Clean addresses: jumping to a section (About, Join in, Begin reading…) scrolls there
+   without adding #about or similar to the address bar. Links from other pages to a
+   homepage section open the homepage and then scroll, keeping the address as zigarthanda.in. */
+(function () {
+  function jump(id) {
+    var el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank') return;
+    var url = new URL(a.getAttribute('href'), location.href);
+    if (url.origin !== location.origin || !url.hash) return;
+    var id = decodeURIComponent(url.hash.slice(1));
+    if (url.pathname === location.pathname) {          /* same page: just scroll */
+      if (jump(id)) e.preventDefault();
+    } else {                                            /* another page: go there clean, then scroll */
+      e.preventDefault();
+      try { sessionStorage.setItem('zig-jump', id); } catch (err) {}
+      location.href = url.pathname + url.search;
+    }
+  });
+  function arrive() {
+    var id = null;
+    try { id = sessionStorage.getItem('zig-jump'); sessionStorage.removeItem('zig-jump'); } catch (err) {}
+    if (!id && location.hash) id = decodeURIComponent(location.hash.slice(1));
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (id) setTimeout(function () { jump(id); }, 60);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrive); else arrive();
+  window.addEventListener('hashchange', arrive);
 })();
