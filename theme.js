@@ -90,3 +90,17 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrive); else arrive();
   window.addEventListener('hashchange', arrive);
 })();
+
+/* Outside links (Instagram, Substack, Letterboxd, Goodreads, links in pieces) open in a new tab;
+   links to your own pages stay in the same tab. Works for every piece you publish, automatically. */
+(function () {
+  function mark(root) {
+    (root || document).querySelectorAll('a[href^="http"]').forEach(function (a) {
+      if (a.hostname && a.hostname !== location.hostname) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { mark(); }); else mark();
+})();
