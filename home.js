@@ -18,7 +18,8 @@
         href: href,
         title: t.textContent.trim(),
         meta: ((a.querySelector('.meta') || {}).textContent || '').trim(),
-        featured: isFeatured
+        featured: isFeatured,
+        pair: ((a.closest('li') || {}).dataset || {}).pair || ''
       });
     });
     return out;
@@ -39,6 +40,16 @@
   }
 
   function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
+
+  /* A random number that stays the same all day (it changes at midnight, the reader's time),
+     so every visit that day shows the same double bill. */
+  function dailyRandom(salt) {
+    var d = new Date(), key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + salt, h = 2166136261;
+    for (var i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+    h = Math.imul(h ^ (h >>> 15), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+  }
+  function pickToday(list, salt) { return list[Math.floor(dailyRandom(salt) * list.length)]; }
 
   function fill(card, piece) {
     card.href = piece.href;
@@ -63,9 +74,17 @@
 
     /* Tonight's double bill */
     var bill = document.querySelector('[data-bill]');
-    if (bill && data.matinee.length && data.verandah.length) {
-      fill(bill.querySelector('[data-bill-m]'), pick(data.matinee));
-      fill(bill.querySelector('[data-bill-v]'), pick(data.verandah));
+    /* One Matinee and one Verandah piece, chosen for the day. If the Matinee piece has a
+       pair word (pair: dune) and a Verandah piece shares it, that piece is shown beside it. */
+    var films = data.matinee.filter(function (p) { return !p.featured; });
+    var books = data.verandah.filter(function (p) { return !p.featured; });
+    if (!films.length) films = data.matinee;
+    if (!books.length) books = data.verandah;
+    if (bill && films.length && books.length) {
+      var film = pickToday(films, 'matinee');
+      var partner = film.pair && books.filter(function (p) { return p.pair === film.pair; })[0];
+      fill(bill.querySelector('[data-bill-m]'), film);
+      fill(bill.querySelector('[data-bill-v]'), partner || pickToday(books, 'verandah'));
       bill.hidden = false;
     }
 
