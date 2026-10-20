@@ -7,6 +7,10 @@ url: "https://zigarthanda.in"
 lang: en
 timezone: America/Toronto
 
+# Clean addresses: zigarthanda.in/matinee/ and zigarthanda.in/matinee/the-rain-in-our-cinema/
+# instead of addresses ending in .html
+permalink: pretty
+
 # Who writes here — used in Google's article details for every piece
 author:
   name: Sibiraj
@@ -21,6 +25,7 @@ social:
 plugins:
   - jekyll-sitemap   # builds sitemap.xml and robots.txt for Google, updated every time you publish
   - jekyll-seo-tag   # writes the search and link-preview details on every piece
+  - jekyll-redirect-from   # sends old .html addresses on to the new clean ones
 
 # Every piece in matinee/ and verandah/ is marked as an article by Sibiraj
 defaults:
