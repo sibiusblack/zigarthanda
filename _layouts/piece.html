@@ -3,14 +3,13 @@
 <!-- The design every Matinee and Verandah piece uses. You don't need to edit this file to publish. -->
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5GYMV85VHE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5GYMV85VHE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GYMV85VHE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5GYMV85VHE');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Title, description, canonical address, link previews and article details for Google:
@@ -41,10 +40,16 @@
 
   <main>
     <article>
+      <div class="post-top{% if page.cover %} has-cover{% endif %}">
       <div class="post-head">
-        <a class="post-label" href="{{ '/' | append: page.room | append: '/' | relative_url }}"><span aria-hidden="true">&larr;</span> <span class="post-label-text">{% if page.room == "verandah" %}Back to the Verandah{% else %}Back to Matinee{% endif %}</span></a>        <h1 class="post-title">{{ page.title }}</h1>
+        <a class="post-label" href="{{ '/' | append: page.room | append: '/' | relative_url }}"><span aria-hidden="true">&larr;</span> <span class="post-label-text">{% if page.room == "verandah" %}Back to the Verandah{% else %}Back to Matinee{% endif %}</span></a>
+        <h1 class="post-title">{{ page.title }}</h1>
         {%- assign words = content | strip_html | number_of_words %}
         <p class="post-meta">{{ page.date | date: "%-d %B %Y" }} · {{ words | divided_by: 220 | plus: 1 }} min read</p>
+      </div>
+      {%- if page.cover %}
+      <div class="post-cover"><img src="{{ '/assets/images/' | append: page.room | append: '/' | append: page.cover | relative_url }}" alt="" fetchpriority="high" onerror="this.closest('.post-top').classList.remove('has-cover'); this.parentNode.remove()"></div>
+      {%- endif %}
       </div>
 
       <div class="post-body">
