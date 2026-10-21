@@ -1,6 +1,5 @@
-/* Zigarthanda — tickets and search for the Matinee and Verandah pages.
-   Each piece in the list gets its ticket stub and seat number here (oldest piece is No. 1),
-   the search box filters the list as you type, and opening a piece is remembered
+/* Zigarthanda — search for the Matinee and Verandah pages.
+   The search box filters the list as you type, and opening a piece is remembered
    so the homepage seat map can show it as read. */
 (function () {
   /* Remember which pieces this reader has opened (their browser only) */
@@ -19,17 +18,6 @@
   if (!list) return;
   var items = Array.prototype.slice.call(list.querySelectorAll('.piece-row'));
 
-  /* Ticket stubs with seat numbers */
-  items.forEach(function (li, i) {
-    var a = li.querySelector('a');
-    if (!a || a.querySelector('.stub')) return;
-    var stub = document.createElement('span');
-    stub.className = 'stub';
-    stub.setAttribute('aria-hidden', 'true');
-    stub.innerHTML = '<span class="stub-label">Seat</span><span class="stub-no">No. ' + (items.length - i) + '</span>';
-    a.appendChild(stub);
-  });
-
   /* Search */
   var search = document.querySelector('[data-search]');
   var countEl = document.querySelector('[data-count]');
@@ -43,7 +31,7 @@
       i.hidden = !show;
       if (show) n++;
     });
-    if (countEl) countEl.textContent = n + (n === 1 ? ' piece' : ' pieces');
+    if (countEl) countEl.textContent = n;
     if (emptyEl) emptyEl.hidden = n !== 0;
   }
   if (search) search.addEventListener('input', apply);
