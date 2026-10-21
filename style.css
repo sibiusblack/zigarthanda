@@ -1,4 +1,4 @@
-/* Zigarthanda — cream paper, frost and slate blue. After the cover of Ru. All Garamond. */
+/* Zigarthanda — cream paper, frost and slate blue. */
 
 :root {
   --paper: #FAF8F3;       /* page: soft paper, off-white */
@@ -509,3 +509,22 @@ html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the m
   .nav a { padding: 8px 0; }
   html { scroll-padding-top: 100px; }
 }
+
+/* ---------- Piece page: room band, cover, stills, quote sources (v30) ---------- */
+.post-top { background: var(--v-bg); padding-bottom: 8px; }
+.post-top .post-head { padding-bottom: 40px; }
+.post-top.has-cover { padding-bottom: 0; background: linear-gradient(to bottom, var(--v-bg) calc(100% - min(150px, 22vw)), transparent 0); }
+.post-cover { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.post-cover img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.post-body figure { margin: 1.8em 0; }
+.post-body figure img { display: block; width: 100%; height: auto; }
+.post-body figcaption { margin-top: 10px; font-family: var(--label); font-size: 15px; font-style: italic; color: var(--ink-faint); }
+.post-body figure.wide { --w: min(960px, 100vw - 40px); width: var(--w); margin-left: calc((100% - var(--w)) / 2); }
+.post-body blockquote { padding: 4px 0 4px 22px; }
+.post-body blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--label); font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--v); }
+.post-body hr { color: var(--v); }
+/* Tickets without a cover show the room's mark */
+.piece-row .thumb-mark { display: flex; align-items: center; justify-content: center; }
+@media (max-width: 540px) { .piece-row .thumb-mark { display: none; } }
+.thumb-mark svg { width: 56px; height: 34px; fill: none; stroke: var(--v); stroke-width: 1.5; opacity: .6; }
+.thumb-mark svg * { vector-effect: non-scaling-stroke; }
