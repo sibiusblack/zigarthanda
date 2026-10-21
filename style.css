@@ -530,3 +530,29 @@ html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the m
 @media (max-width: 540px) { .piece-row .thumb-mark { display: none; } }
 .thumb-mark svg { width: 56px; height: 34px; fill: none; stroke: var(--v); stroke-width: 1.5; opacity: .6; }
 .thumb-mark svg * { vector-effect: non-scaling-stroke; }
+
+/* ---------- Piece page: magazine touches (v32) ---------- */
+.post-dek { margin-top: 14px; max-width: 34em; font-family: var(--label); font-style: italic; font-size: 22px; line-height: 1.45; color: var(--ink-soft); }
+.post-dek + .post-meta { margin-top: 16px; }
+@media (max-width: 540px) { .post-dek { font-size: 19px; } }
+.post-body, .post-meta { font-variant-numeric: oldstyle-nums; }
+.lede-caps { font-variant: small-caps; letter-spacing: .06em; font-size: 1.08em; }
+.post-endmark { display: inline-block; width: 26px; height: 16px; margin-left: 4px; vertical-align: -1px; fill: none; stroke: var(--v); stroke-width: 1.5; }
+.post-endmark * { vector-effect: non-scaling-stroke; }
+.post-body blockquote { border-left: 0; padding: 0; font-size: 1.12em; color: var(--ink); }
+.post-body blockquote::before { content: "\201C"; display: block; height: 40px; font-family: var(--display); font-style: normal; font-size: 84px; line-height: 1; color: var(--v); opacity: .5; }
+.read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--v); transform: scaleX(0); transform-origin: left; z-index: 60; pointer-events: none; }
+/* Two images side by side: portrait by default, add "landscape" for wide stills */
+.post-body figure.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.post-body figure.pair img { aspect-ratio: 2 / 3; object-fit: cover; }
+.post-body figure.pair.landscape img { aspect-ratio: 16 / 9; }
+.post-body figure.pair figcaption { grid-column: 1 / -1; margin-top: 0; }
+/* Notes at the end */
+.post-body sup.fn { line-height: 0; font-size: .65em; }
+.post-body sup.fn a { padding: 0 2px; color: var(--v); text-decoration: none; }
+.post-body .notes { margin-top: 3em; padding-top: 20px; border-top: 1px solid var(--hair); }
+.post-body .notes h3 { font-family: var(--label); font-weight: 400; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-faint); }
+.post-body .notes ol { margin: 10px 0 0; padding-left: 20px; font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+.post-body .notes li + li { margin-top: 6px; }
+.post-body .notes a { color: var(--v); }
+:target { scroll-margin-top: 90px; }
