@@ -8,7 +8,7 @@
         <li class="piece-row room-{{ t.room }}"{% if t.pair %} data-pair="{{ t.pair }}"{% endif %}>
           <a href="{{ t.url | relative_url }}">
             {%- if include.thumb and t.cover %}
-            <span class="thumb"><img src="{{ '/images/' | append: t.room | append: '/' | append: t.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
+            <span class="thumb"><img src="{{ '/assets/images/' | append: t.room | append: '/' | append: t.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
             {%- endif %}
             <span class="row-body">
               <span class="meta">{% if include.mark %}{{ t.room | capitalize }} · {% endif %}{{ t.date | date: "%-d %B %Y" }} · {{ t_mins }} min read</span>
