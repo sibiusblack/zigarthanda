@@ -1,5 +1,5 @@
 {%- comment -%}
-  The featured piece, search and list for one room, built automatically from the
+  The featured piece, search and poster wall for one room (v4), built automatically from the
   piece files in the matinee/ or verandah/ folder. Pass: room="matinee" or "verandah".
 {%- endcomment -%}
 {%- assign room_pieces = site.pages | where: "room", include.room | sort: "date" | reverse -%}
@@ -38,13 +38,16 @@
         </span>
       </a>
 
-      <div class="filters" role="search" aria-label="Search {{ include.room | capitalize }}">
-        <label class="sr-only" for="q">Search {{ include.room | capitalize }}</label>
-        <input id="q" type="search" placeholder="Search {{ include.room | capitalize }}" data-search>
+      <div class="list-head">
+        <h2 class="list-title">All pieces <span class="list-count">· <span data-count>{{ shown }}</span></span></h2>
+        <div class="list-search" role="search">
+          <label class="sr-only" for="q">Search {{ include.room | capitalize }}</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16 L21 21"/></svg>
+          <input id="q" type="search" placeholder="Search {{ include.room | capitalize }}" data-search>
+        </div>
       </div>
-      <p class="count" data-count aria-live="polite"></p>
 
-      <ul class="pieces-list" data-pieces>
+      <ul class="pieces-list wall" data-pieces>
       {%- for p in room_pieces -%}
         {%- unless p.name contains "template" %}
 {% include ticket.html piece=p thumb="yes" %}
