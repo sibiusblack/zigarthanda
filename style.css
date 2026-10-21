@@ -587,3 +587,9 @@ html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the m
 .footer-rooms .footer-verandah { color: var(--plum); }
 .footer-rooms a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .footer-rooms span { color: var(--ink-faint); font-weight: 400; }
+
+/* ---------- Lists inside a piece (v36) ---------- */
+.post-body > ol, .post-body > ul { margin: 1.2em 0; padding-left: 1.6em; }
+.post-body > ol > li + li, .post-body > ul > li + li { margin-top: .5em; }
+.post-body > ol > li::marker { font-family: var(--display); font-weight: 600; color: var(--v); }
+.post-body > ul > li::marker { color: var(--v); }
