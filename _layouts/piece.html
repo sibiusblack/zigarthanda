@@ -42,8 +42,7 @@
   <main>
     <article>
       <div class="post-head">
-        <a class="post-label" href="{{ '/' | append: page.room | append: '/' | relative_url }}">{{ page.room | capitalize }}</a>
-        <h1 class="post-title">{{ page.title }}</h1>
+        <a class="post-label" href="{{ '/' | append: page.room | append: '/' | relative_url }}"><span aria-hidden="true">&larr;</span> <span class="post-label-text">{% if page.room == "verandah" %}Back to the Verandah{% else %}Back to Matinee{% endif %}</span></a>        <h1 class="post-title">{{ page.title }}</h1>
         {%- assign words = content | strip_html | number_of_words %}
         <p class="post-meta">{{ page.date | date: "%-d %B %Y" }} · {{ words | divided_by: 220 | plus: 1 }} min read</p>
       </div>
