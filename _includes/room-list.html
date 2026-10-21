@@ -24,7 +24,7 @@
       {%- assign f_mins = f_words | divided_by: 220 | plus: 1 %}
       <a class="featured" href="{{ featured.url | relative_url }}">
         {%- if featured.cover %}
-        <span class="featured-cover"><img src="{{ '/images/' | append: include.room | append: '/' | append: featured.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="featured-cover"><img src="{{ '/assets/images/' | append: include.room | append: '/' | append: featured.cover | relative_url }}" alt="" loading="lazy" onerror="this.remove()"></span>
         {%- endif %}
         <span class="featured-body">
           <span class="featured-label">{% if include.room == "verandah" %}Just poured{% else %}Now showing{% endif %}</span>
