@@ -139,8 +139,8 @@ img { display: block; max-width: 100%; }
 .door:focus-within { outline: 2px solid var(--door); outline-offset: 3px; }
 
 /* About */
-.about { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
-.portrait { flex: 0 0 160px; aspect-ratio: 4 / 5; background: var(--paper-deep); overflow: hidden; }
+.about { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch; }
+.portrait { flex: 0 0 180px; min-height: 225px; background: var(--paper-deep); overflow: hidden; }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
 .about-text { flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px; }
 .about-text p:first-child { font-size: 22px; line-height: 1.5; }
