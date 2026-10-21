@@ -556,3 +556,26 @@ html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the m
 .post-body .notes li + li { margin-top: 6px; }
 .post-body .notes a { color: var(--v); }
 :target { scroll-margin-top: 90px; }
+
+/* ---------- Room pages: "All pieces" heading, quiet search, poster wall (v33) ---------- */
+.list-head { margin-top: 64px; padding-bottom: 14px; border-bottom: 1px solid var(--hair); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 24px; }
+.list-title { font-family: var(--display); font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--ink); }
+.list-count { font-family: var(--label); font-style: italic; font-weight: 400; font-size: 18px; color: var(--ink-faint); }
+.list-search { flex: 0 1 280px; display: flex; align-items: center; gap: 8px; padding: 4px 2px; border-bottom: 1px solid var(--ink-faint); }
+.list-search:focus-within { border-bottom-color: var(--v); }
+.list-search svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--ink-faint); stroke-width: 1.6; stroke-linecap: round; }
+.list-search input { flex: 1; min-width: 0; padding: 4px 0; border: 0; background: none; font-family: var(--label); font-style: italic; font-size: 18px; color: var(--ink); outline: none; -webkit-appearance: none; appearance: none; }
+.list-search input::placeholder { color: var(--ink-faint); }
+@media (max-width: 540px) { .list-search { flex-basis: 100%; } }
+.pieces-list.wall { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 34px 26px; }
+.pieces-list.wall .piece-row { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+.pieces-list.wall .piece-row[hidden] { display: none; }
+.pieces-list.wall .piece-row a { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; background: none; transform: none; }
+.pieces-list.wall .piece-row a::before, .pieces-list.wall .piece-row a::after { display: none; }
+.pieces-list.wall .row-body { display: contents; }
+.pieces-list.wall .piece-row .thumb { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 14px; background: var(--v-bg); transition: transform .25s ease; }
+.pieces-list.wall .piece-row a:hover .thumb { transform: translateY(-3px); }
+.pieces-list.wall .meta, .pieces-list.wall .row-title, .pieces-list.wall .summary { align-self: start; }
+.pieces-list.wall .row-title { font-size: 24px; }
+.pieces-list.wall .summary { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 6px; font-size: 18px; line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) { .pieces-list.wall .piece-row a:hover .thumb { transform: none; } }
