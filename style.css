@@ -593,7 +593,3 @@ html { scroll-padding-top: 90px; }   /* "About", "Join in" etc. stop below the m
 .post-body > ol > li + li, .post-body > ul > li + li { margin-top: .5em; }
 .post-body > ol > li::marker { font-family: var(--display); font-weight: 600; color: var(--v); }
 .post-body > ul > li::marker { color: var(--v); }
-
-/* ---------- Header logo image (v37) ---------- */
-.logo-img { display: block; height: 28px; width: auto; flex: none; }
-@media (max-width: 540px) { .logo-img { height: 24px; } }
